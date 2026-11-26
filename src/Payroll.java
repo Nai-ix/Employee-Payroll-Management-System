@@ -54,13 +54,11 @@ public class Payroll {
     public static void main(String[] args) {
 
         boolean running = true; // Controls the main loop: when it becomes false, the program ends
-        boolean exitChoice = true;  // Controls the "Do you want to exit?" confirmation loop
         
         while (running) {
             displayMainMenu(); // Show the menu
             int choice = readMenuChoice(); // Get a valid number from the user
 
-            
             // switch = runs the code of the case that matches the user's choice
             // "break" stops the switch so it doesn't continue into the next case
             switch (choice) {
@@ -78,7 +76,7 @@ public class Payroll {
                     break;
                 case 5:
                     // Exit selected: ask for confirmation first so the user doesn't quit by accident
-                    exitChoice = true; // Reset confirmation state every time option 5 is selected
+                    boolean exitChoice = true;  // Controls the "Do you want to exit?" confirmation loop
                     while (exitChoice) {
                         int exitOption = readExitChoice(); // 1 = Yes, 2 = No
                         if (exitOption == 1) {
@@ -87,8 +85,6 @@ public class Payroll {
                             exitChoice = false; // Stops this confirmation loop
                         } else if (exitOption == 2) {
                             exitChoice = false; // User said No, leave this loop and go back to the menu
-                            // NOTE: exitChoice is never set back to true. So after answering "No" once,
-                            // choosing option 5 again will skip this loop and the program won't exit.
                         }
                     }
                      
