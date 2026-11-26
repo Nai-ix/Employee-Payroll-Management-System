@@ -78,6 +78,7 @@ public class Payroll {
                     break;
                 case 5:
                     // Exit selected: ask for confirmation first so the user doesn't quit by accident
+                    exitChoice = true; // Reset confirmation state every time option 5 is selected
                     while (exitChoice) {
                         int exitOption = readExitChoice(); // 1 = Yes, 2 = No
                         if (exitOption == 1) {
